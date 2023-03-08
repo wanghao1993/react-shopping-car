@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
-import * as ReactDOMClient from 'react-dom/client';
-
+// 严格模式
+// import * as ReactDOMClient from 'react-dom/client';
+import ReactDOMClient from 'react-dom/client';
 /* Theme */
 import { ThemeProvider } from 'commons/style/styled-components';
 import { theme } from 'commons/style/theme';
@@ -17,13 +18,7 @@ const container = ReactDOMClient.createRoot(root);
 
 container.render(
   <StrictMode>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <ProductsProvider>
-        <CartProvider>
-          <App />
-        </CartProvider>
-      </ProductsProvider>
-    </ThemeProvider>
+    {/* 第一步传统实现内容 */}
+    <App />
   </StrictMode>
 );

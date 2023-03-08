@@ -1,42 +1,14 @@
-import { useEffect } from 'react';
-
-import Loader from 'components/Loader';
-import { GithubCorner, GithubStarButton } from 'components/Github';
-import Recruiter from 'components/Recruiter';
-import Filter from 'components/Filter';
-import Products from 'components/Products';
-import Cart from 'components/Cart';
-
-import { useProducts } from 'contexts/products-context';
-
-import * as S from './style';
-
+import Filter from './../Filter/filter';
+import Products from 'components/Products/products';
+import './../App/app.css'
 function App() {
-  const { isFetching, products, fetchProducts } = useProducts();
-
-  useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
-
+  // 分两个部分size选择和内容显示
   return (
-    <S.Container>
-      {isFetching && <Loader />}
-      <GithubCorner />
-      <Recruiter />
-      <S.TwoColumnGrid>
-        <S.Side>
-          <Filter />
-          <GithubStarButton />
-        </S.Side>
-        <S.Main>
-          <S.MainHeader>
-            <p>{products?.length} Product(s) found</p>
-          </S.MainHeader>
-          <Products products={products} />
-        </S.Main>
-      </S.TwoColumnGrid>
-      <Cart />
-    </S.Container>
+    <div id='container' style={{ marginTop: '50px', padding: '0 20px' }}>
+        <Filter />
+      {/* 产品图 */}
+        <Products />
+    </div>
   );
 }
 
