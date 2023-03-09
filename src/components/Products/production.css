@@ -1,0 +1,16 @@
+#products {
+    display: grid;
+    gap: 10px;
+}
+
+@media screen and (min-width: 1160px) {
+  #products {
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+}
+
+@media screen and (max-width: 1160px) {
+  #products {
+    grid-template-columns: 33.33% 33.33% 33.33%;
+  }
+}
